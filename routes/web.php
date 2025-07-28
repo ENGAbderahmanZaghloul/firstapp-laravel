@@ -48,15 +48,17 @@ Route::get('/posts/{postId}' ,[PostsController::class,'show']
 ) ->name('posts.show');  // ->name is ashortcut for routing
 
 Route::get('/jobs' , [jobController::class,'index']
-) ->name('jobs.index');  
+) ->name('jobs.index');
 
 Route::get('/jobs/{jobId}' ,[jobController::class,'show']
-    ) ->name('jobs.show');  
-    
+    ) ->name('jobs.show');
+
 Route::get('/employees' ,[employeesController::class,'index']
-    ) ->name('employees.index'); 
-     
+    ) ->name('employees.index');
+
 Route::get('/employees/{id}' ,[employeesController::class,'show']
-    ) ->name('employees.show');  
+    ) ->name('employees.show');
+Route::get('/employees/{id}/employeeDetail' ,[employeesController::class,'employeeDetail']
+    ) ->name('employees.employeeDetail');
 
 require __DIR__.'/auth.php';

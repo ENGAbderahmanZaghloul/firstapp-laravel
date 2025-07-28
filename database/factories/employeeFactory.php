@@ -2,6 +2,7 @@
 
 namespace Database\Factories;
 
+use App\Models\EmployeeDetail;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 /**
@@ -17,6 +18,7 @@ class employeeFactory extends Factory
     public function definition(): array
     {
         return [
+            'employee_detail_id' =>EmployeeDetail::factory(),
             'name' =>fake()->name(),
             'salary' => (string) fake()->numberBetween('8000','15000') . ' $',
             'role' => fake()->randomElement(['Backend Developer',
@@ -26,6 +28,7 @@ class employeeFactory extends Factory
                 'DevOps Engineer',
                 'QA Tester',
             ]),
+
         ];
     }
 }

@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 use App\Models\Employee; // ✅ الحل هنا
+use App\Models\EmployeeDetail;
 use Illuminate\Support\Arr;
 use Illuminate\Http\Request;
 use Illuminate\Routing\Controller;
@@ -17,7 +18,7 @@ class employeesController extends Controller
         $employees = Employee::all();
         return view('employees.index' , ['employees' => $employees]);
     }
-    
+
     public function show($id){
         // $employees = [
         //         ['id'=>1,'name'=>'Abdulrahman','salary'=>'10,000 $'],
@@ -31,5 +32,10 @@ class employeesController extends Controller
             abort(404);
         };
         return view('employees.show' , ['employee' => $employee]);
+    }
+
+    public function employeeDetail($id){
+        $employeeDetail = EmployeeDetail::find($id);
+        return view('employees.employeeDetail' , ['employeeDetail' => $employeeDetail]);
     }
 }

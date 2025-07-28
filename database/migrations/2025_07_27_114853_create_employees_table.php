@@ -16,6 +16,7 @@ return new class extends Migration
             $table->string('name');
             $table->string('salary');
             $table->string('role');
+            $table->foreignIdFor(\App\Models\EmployeeDetail::class); // to connect between 2 models by uniqe id
             $table->timestamps();
         });
     }
