@@ -3,8 +3,10 @@
         Employees
     </x-slot:heading>
     @foreach($employees as $employee)
-    <li>
-        <a href="/employees/{{$employee['id']}}">{{ $employee['name'] }}</a>
-    </li>
+    <ul class="flex flex-col gap-2 text-left">
+        <li >
+            <a href="/employees/{{$employee['id']}}">{{ $employee['name'] }}</a>
+        </li>
+    </ul>
     @endforeach
 </x-layout>
