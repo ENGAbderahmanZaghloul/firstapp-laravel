@@ -15,7 +15,8 @@ class employeesController extends Controller
         //         ['id'=>2,'name'=>'Ahmed','salary'=>'15,000 $'],
         //         ['id'=>1,'name'=>'Mohamed','salary'=>'6,000 $'],
         // ];
-        $employees = Employee::all();
+        // $employees = Employee::all();  => without pagination
+        $employees = Employee::with('employeeDetail')->paginate(4);  // with pagination
         return view('employees.index' , ['employees' => $employees]);
     }
 

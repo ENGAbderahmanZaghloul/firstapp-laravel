@@ -15,5 +15,10 @@ class Employee extends Model
     // the second simple way to define the table name
     // protected $table = 'employees';
 
+    public function employeeDetail()
+    {
+        return $this->belongsTo(EmployeeDetail::class);
+    }
+
 
 }

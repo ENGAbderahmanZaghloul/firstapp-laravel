@@ -6,6 +6,7 @@ use Illuminate\Http\Request; // ✅ الحل هنا
 use Illuminate\Routing\Controller;
 use App\Models\Employee;
 
+
 class jobController extends Controller
 {
     public function index(){

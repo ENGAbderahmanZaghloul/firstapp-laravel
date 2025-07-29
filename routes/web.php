@@ -51,7 +51,8 @@ Route::get('/jobs' , [jobController::class,'index']
 ) ->name('jobs.index');
 
 Route::get('/jobs/{jobId}' ,[jobController::class,'show']
-    ) ->name('jobs.show');
+
+) ->name('jobs.show');
 
 Route::get('/employees' ,[employeesController::class,'index']
     ) ->name('employees.index');
