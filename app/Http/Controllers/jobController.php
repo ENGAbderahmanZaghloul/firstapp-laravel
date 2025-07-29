@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 use Illuminate\Support\Arr;
 use Illuminate\Http\Request; // ✅ الحل هنا
 use Illuminate\Routing\Controller;
+use App\Models\Employee;
 
 class jobController extends Controller
 {
@@ -22,13 +23,15 @@ class jobController extends Controller
             ['id'=>2,'title'=>'engineer','salary'=>'15,000 $'],
             ['id'=>3,'title'=>'Designer','salary'=>'6,000 $'],
              ] ;
-            
+
         $job = Arr::first($jobs ,fn($job)=> $job['id']==$jobId);
+        $employee=Employee::find($jobId);  // this is to connect between the job and the employee name
         if(! $job){
             abort(404);
         };
         return view('jobs.show',[
-            'job' => $job
+            'job' => $job,
+            'employee'=>$employee
         ]);
     }
 }
