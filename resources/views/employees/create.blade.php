@@ -20,6 +20,9 @@
                                     <input id="name" type="text" name="name" placeholder="Dr. Hobart Hessel"
                                         class="block min-w-0 grow py-1.5 pr-3 pl-1 text-base text-gray-900 placeholder:text-gray-400 focus:outline-none sm:text-sm/6" />
                                 </div>
+                                @error('name')
+                                    <p class="text-red-500 text-sm mt-2 ml-2">{{ $message }}</p>
+                                @enderror
                             </div>
                         </div>
                         <div class="sm:col-span-4">
@@ -30,6 +33,9 @@
                                     <input id="salary" type="text" name="salary" placeholder="10,000 $"
                                         class="block min-w-0 grow py-1.5 pr-3 pl-1 text-base text-gray-900 placeholder:text-gray-400 focus:outline-none sm:text-sm/6" />
                                 </div>
+                                @error('salary')
+                                    <p class="text-red-500 text-sm mt-2 ml-2">{{ $message }}</p>
+                                @enderror
                             </div>
                         </div>
                         <div class="sm:col-span-4">
@@ -40,6 +46,9 @@
                                     <input id="role" type="text" name="role" placeholder="engineer"
                                         class="block min-w-0 grow py-1.5 pr-3 pl-1 text-base text-gray-900 placeholder:text-gray-400 focus:outline-none sm:text-sm/6" />
                                 </div>
+                                @error('role')
+                                    <p class="text-red-500 text-sm mt-2 ml-2">{{ $message }}</p>
+                                @enderror
                             </div>
                         </div>
 
