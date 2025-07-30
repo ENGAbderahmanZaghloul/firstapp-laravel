@@ -16,9 +16,17 @@ class employeesController extends Controller
         //         ['id'=>1,'name'=>'Mohamed','salary'=>'6,000 $'],
         // ];
         // $employees = Employee::all();  => without pagination
-        $employees = Employee::with('employeeDetail')->paginate(4);  // with pagination
+
+        $employees = Employee::with('employeeDetail')->latest()->paginate(4);  // with pagination (latest => order the last id created first)
+        // $employees = Employee::with('employeeDetail')->simplePaginate(4);  // with simple pagination only next , pervious btns
         return view('employees.index' , ['employees' => $employees]);
     }
+
+
+    public function create(){
+        return view('employees.create');
+    }
+
 
     public function show($id){
         // $employees = [

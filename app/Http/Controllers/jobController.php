@@ -18,6 +18,7 @@ class jobController extends Controller
         return view ('jobs.index' ,['jobs' => $jobs]);
     }
 
+
     public function show($jobId){
         $jobs = [
             ['id'=>1,'title'=>'programmer','salary'=>'10,000 $'],

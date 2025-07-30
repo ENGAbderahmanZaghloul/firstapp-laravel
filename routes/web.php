@@ -7,6 +7,7 @@ use App\Http\Controllers\HomeController;
 use App\Http\Controllers\PostsController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\employeesController;
+use App\Models\Employee;
 
 Route::get('/', [HomeController::class,'actionsContainer'])->name('home');
 
@@ -50,6 +51,7 @@ Route::get('/posts/{postId}' ,[PostsController::class,'show']
 Route::get('/jobs' , [jobController::class,'index']
 ) ->name('jobs.index');
 
+
 Route::get('/jobs/{jobId}' ,[jobController::class,'show']
 
 ) ->name('jobs.show');
@@ -57,9 +59,23 @@ Route::get('/jobs/{jobId}' ,[jobController::class,'show']
 Route::get('/employees' ,[employeesController::class,'index']
     ) ->name('employees.index');
 
+Route::get('/employees/create', [employeesController::class,'create'])
+    ->name('employees.create');
+
 Route::get('/employees/{id}' ,[employeesController::class,'show']
     ) ->name('employees.show');
+
 Route::get('/employees/{id}/employeeDetail' ,[employeesController::class,'employeeDetail']
     ) ->name('employees.employeeDetail');
 
+Route::post('/employees',function(){
+    //here we handle the validation
+    Employee::create([
+        'name'=> request('name'),
+        'salary'=> request('salary'),
+        'role'=> request('role'),
+        'employee_detail_id'=> 1,
+    ]);
+    return redirect('employees');
+});
 require __DIR__.'/auth.php';
