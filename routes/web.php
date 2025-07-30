@@ -70,6 +70,24 @@ Route::get('/employees/{id}/employeeDetail' ,[employeesController::class,'employ
 
 Route::post('/employees',function(){
     //here we handle the validation
+    request() ->validate([
+        'name' => ['required','min:3','max:10'],
+        'salary' => ['required','numeric'],
+        'role' => ['required','min:3','max:10'],
+
+    ] ,
+    [ // here we handle the custom msg that return from request
+        'name.required' =>'you should enter a name',
+        'name.min' => 'name must be at least 3 characters',
+        'name.max' => 'name must be at most 10 characters',
+        'salary.required' =>'you should enter a salary',
+        'salary.numeric' => 'salary must be a number',
+        'role.required' =>'you should enter a role',
+        'role.min' => 'role must be at least 3 characters',
+        'role.max' => 'role must be at most 10 characters',
+    ]);
+
+    //here we handle the creation process
     Employee::create([
         'name'=> request('name'),
         'salary'=> request('salary'),
