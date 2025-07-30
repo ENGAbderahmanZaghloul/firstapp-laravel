@@ -1,6 +1,10 @@
 <x-layout>
     <x-slot:heading>
-        Employees
+        <div class="flex justify-between">
+            Employees
+            <x-button href="/employees/create">Create Employee</x-button>
+        </div>
+
     </x-slot:heading>
     @foreach ($employees as $employee)
         <ul class="flex flex-col gap-2 text-left space-y-2 px-4">
