@@ -10,7 +10,8 @@ class Employee extends Model
     use HasFactory;
 
     // تحديد أسماء الأعمدة المسموح بالـ Mass Assignment ليها
-    protected $fillable = ['name', 'salary', 'role'];  // =>it's the safe way to connect with db
+    // protected $fillable = ['employee_detail_id','name', 'salary', 'role'];  // =>it's the safe way to connect with db
+    protected $guarded = [];
 
     // the second simple way to define the table name
     // protected $table = 'employees';
